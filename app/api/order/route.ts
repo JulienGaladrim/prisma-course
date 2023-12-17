@@ -28,6 +28,6 @@ export const GET = async (req: NextRequest) => {
   //     },
   //   },
   // });
-  const result = null;
-  return NextResponse.json(result, { status: 200 });
+  // return NextResponse.json(result, { status: 200 });
+  return [];
 };

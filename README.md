@@ -18,17 +18,20 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Todo on this course (step by step) :
 
-To learn more about Next.js, take a look at the following resources:
+Create the model Order and ProductOrder, then generate the tables and seed them (uncomment the code in prisma/seed.ts).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add the CRUD for the Product table :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- in app/api/product/route.ts : add the create logic
+- in app/api/product/[id]/route.ts : add the select, update and delete logic
 
-## Deploy on Vercel
+Make the order routes operationnal :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- in app/api/order/route.ts : uncomment the code and update the query to take pagination in account
+- in app/api/order/count/route.ts : uncomment the code
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Make the queries for the dashboard. In /app/api/dashboard/[id]/route.ts, make the prisma query for each of the 5 calls.
+
+For every query, the types are already defined
