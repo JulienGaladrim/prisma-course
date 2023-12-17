@@ -53,6 +53,11 @@ model User {
   @@map("user")
 }
 
+// Add a table Order with the following fields :
+// - id
+// - userId (relation User)
+// - productOrders (relation productOrders[])
+
 model Order {
   id            String         @id @default(cuid())
   userId        String         @map("user_id")
@@ -63,6 +68,12 @@ model Order {
 
   @@map("order")
 }
+
+// Add a table ProductOrder with the following fields :
+// - id
+// - productId (relation Product)
+// - orderId (relation Order)
+// - quantity
 
 model ProductOrder {
   id        String   @id @default(cuid())

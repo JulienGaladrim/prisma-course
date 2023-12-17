@@ -2,7 +2,7 @@ import { BackLink } from "@/components/BackLink";
 import Link from "next/link";
 
 const Dashboard = () => {
-  const queryList = Array.from({ length: 8 }, (_, index) => index + 1);
+  const queryList = Array.from({ length: 5 }, (_, index) => index + 1);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <BackLink link="/" />

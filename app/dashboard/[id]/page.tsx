@@ -20,14 +20,14 @@ const Query = ({ params }: { params: { id: number } }) => {
 
   const keys = useMemo(() => {
     if (!rows || rows.length === 0) return [];
-    console.log(rows);
-    return Object.keys(rows[0]).filter((key) => key !== "id" && key !== "name");
+    return Object.keys(rows[0]);
   }, [rows]);
 
   useEffect(() => {
     (async () => {
       const { data } = await client.get("/api/dashboard/" + params.id);
       const flattenedData = data.map((row: QueryData) => flattenObject(row));
+      console.log(flattenedData);
       setRows(flattenedData);
     })();
   }, [params.id]);
@@ -40,18 +40,14 @@ const Query = ({ params }: { params: { id: number } }) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell>Name</TableCell>
               {keys.map((key) => (
                 <TableCell key={key}>{key}</TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell scope="row">{row.id}</TableCell>
-                <TableCell>{row.name}</TableCell>
+            {rows.map((row, index) => (
+              <TableRow key={index}>
                 {keys.map((key) => (
                   <TableCell key={key}>{row[key]}</TableCell>
                 ))}

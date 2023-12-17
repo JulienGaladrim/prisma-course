@@ -57,7 +57,7 @@ const ProductDetails = ({ id }: ProductDetailsProps) => {
   useEffect(() => {
     (async () => {
       const { data: fetchedCategories } = await client.get<ProductCategory[]>(
-        "/api/product-category/all"
+        "/api/product-category/"
       );
       setCategories(fetchedCategories);
     })();

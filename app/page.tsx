@@ -5,6 +5,7 @@ export default function Home() {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h1>Ma super demo Prisma</h1>
       <Link href="/product">Products</Link>
+      <Link href="/order">Orders</Link>
       <Link href="/dashboard">Dashboard</Link>
     </div>
   );
