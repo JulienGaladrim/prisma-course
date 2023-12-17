@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductType {
+  BOOK
+  MOVIE
+  OTHER
+}
+
+model Product {
+  id                String          @id @default(cuid())
+  name              String
+  price             Float
+  type              ProductType     @default(OTHER)
+  productCategoryId String          @map("product_category_id")
+  productCategory   ProductCategory @relation(fields: [productCategoryId], references: [id])
+  createdAt         DateTime        @default(now()) @map("created_at")
+  updatedAt         DateTime        @updatedAt @map("updated_at")
+
+  @@map("product")
+}
+
+model ProductCategory {
+  id        String    @id @default(cuid())
+  name      String
+  products  Product[]
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  @@map("product_category")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("user")
+}
+
+// Add a table Order with the following fields :
+// - id
+// - userId (relation User)
+// - productOrders (relation productOrders[])
+
+// Add a table ProductOrder with the following fields :
+// - id
+// - productId (relation Product)
+// - orderId (relation Order)
+// - quantity
