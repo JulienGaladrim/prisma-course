@@ -14,6 +14,10 @@ Run the following command to create the database :
 
 `npm run db:setup`
 
+Don't forget to delete the container when you're done with it :
+
+`npm run db:delete`
+
 Finally start the project with
 
 `npm run dev`
