@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a small lightweigh project used as support to teach the prisma basics.
 
 ## Getting Started
 
-First, run the development server:
+Install the dependencies with
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`npm install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To setup the database, you can use docker, or a local/remote mysql server.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To install docker follow instructions on https://docs.docker.com/engine/install/ .
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run the following command to create the database :
 
-## Learn More
+`npm run db:setup`
 
-To learn more about Next.js, take a look at the following resources:
+Finally start the project with
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run dev`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Todo on this course (step by step) :
 
-## Deploy on Vercel
+Create the model Order and ProductOrder, then generate the tables and seed them (uncomment the code in prisma/seed.ts).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add the CRUD for the Product table :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- in app/api/product/route.ts : add the create logic
+- in app/api/product/[id]/route.ts : add the select, update and delete logic
+
+Make the order routes operationnal :
+
+- in app/api/order/route.ts : uncomment the code and update the query to take pagination in account
+- in app/api/order/count/route.ts : uncomment the code
+
+Make the queries for the dashboard. In /app/api/dashboard/[id]/route.ts, make the prisma query for each of the 5 calls.
+
+For every query, the types are already defined
