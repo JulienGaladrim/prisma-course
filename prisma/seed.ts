@@ -1,11 +1,4 @@
-import {
-  Order,
-  PrismaClient,
-  Product,
-  ProductCategory,
-  ProductType,
-  User,
-} from "@prisma/client";
+import { PrismaClient, ProductCategory, ProductType } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -23,8 +16,8 @@ const randomDate = () => {
   );
 };
 const emptyTables = async () => {
-  await prisma.productOrder.deleteMany();
-  await prisma.order.deleteMany();
+  // await prisma.productOrder.deleteMany();
+  // await prisma.order.deleteMany();
   await prisma.product.deleteMany();
   await prisma.user.deleteMany();
   await prisma.productCategory.deleteMany();
