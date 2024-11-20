@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:setup": "docker run -d --rm --name=prisma_course_db -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=prisma_course -p 3306:3306 mariadb",
+    "db:delete": "docker stop prisma_course_db"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"

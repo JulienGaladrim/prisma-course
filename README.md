@@ -1,22 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a small lightweigh project used as support to teach the prisma basics.
 
 ## Getting Started
 
-First, run the development server:
+Install the dependencies with
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`npm install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To setup the database, you can use docker, or a local/remote mysql server.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To install docker follow instructions on https://docs.docker.com/engine/install/ .
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run the following command to create the database :
+
+`npm run db:setup`
+
+Finally start the project with
+
+`npm run dev`
 
 ## Todo on this course (step by step) :
 
